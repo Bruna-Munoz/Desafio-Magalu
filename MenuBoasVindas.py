@@ -12,9 +12,9 @@ while True:
 ╠══========================= MENU DE NAVEGAÇÃO ==============================══╣
 
                                 1-CADASTRO 
-                                2-Vendas 
-                                3-Relatório 
-                                4-Sair 
+                                2-VENDAS 
+                                3-RELATÓRIO 
+                                4-SAIR 
                               """)
     opcao = input("""
                         iNFORME A OPÇÃO DESEJADA:""")
