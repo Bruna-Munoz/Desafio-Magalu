@@ -1,3 +1,5 @@
+listProd = {'produto': [], 'preço': []}
+
 while True:
     print(
     """
@@ -26,10 +28,17 @@ while True:
             d) Voltar ao menu anterior.​
             """)
             opcao_cadastro = input('Escolha uma opção: ').lower()
-            if opcao_cadastro == 'a':
-                pass
+            while opcao_cadastro == 'a':
+                listProd['produto'].append(input('Digite o produto a ser cadastrado: ').lower())
+                listProd['preço'].append(float(input('Digite o preço do produto: R$ ').lower()))
+                
+                novo_prod=input('Deseja cadastrar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
+                if novo_prod == 'n' or novo_prod != 's':
+                    break
+   
             if opcao_cadastro == 'b':
-                pass
+                print('A lista de produtos cadastrados é:\n',listProd['produto'])
+
             if opcao_cadastro == 'c':
                 pass
             if opcao_cadastro == 'd':
@@ -46,10 +55,18 @@ while True:
                 d) Voltar ao menu anterior.
 
                 Escolha uma opção compatível: ''').lower()
-                if opcao_cadastro == 'a':
-                        pass
-                if opcao_cadastro == 'b':
-                    pass
+                while opcao_cadastro == 'a':
+                    listProd['produto'].append(input('Digite o produto a ser cadastrado: ').lower())
+                    listProd['preço'].append(float(input('Digite o preço do produto: R$ ').lower()))
+                
+                    novo_prod=input('Deseja cadastrar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
+
+                    if novo_prod == 'n' or novo_prod != 's':
+                        break
+
+            if opcao_cadastro == 'b':
+                print('A lista de produtos cadastrados é:\n',listProd['produto'])
+
                 if opcao_cadastro == 'c':
                     pass
                 if opcao_cadastro == 'd':
