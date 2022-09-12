@@ -85,23 +85,39 @@ while True:
             """)
             opcao_venda = input('Escolha uma opção: ').lower()
 
-            if opcao_venda == 'a':
+            valorTotal = 0
+
+            while opcao_venda == 'a':
                 print("Produtos disponíveis: ", listProd)
 
-                venda = input("Digite o nome do produto sendo vendido: \n")
-                valorTotal = 0
+                p = input("Digite o nome do produto sendo comprado: \n")
 
-                for p in listProd['produto']:
-                    for v in listProd['preço']:
+                for p in range(len(listProd['produto'])):
+                    for v in range(len(listProd['preço'])):
                         valorTotal += v
+                        print("Produto adicionado: ", str(p),
+                        "Preço do produto: R$", int(v), 
+                        "Valor total da compra: R$", valorTotal)
 
-                        print("Produto adicionado: ", p,
-                        "Preço do produto: ", v, 
-                        "Valor total da compra: ", valorTotal)
-
+                    print("""
+                    a) Adicionar mais produtos ao carrinho;
+                    b) Finalizar a compra.""")
+                
+                    opcao_venda = input('Escolha uma opção: \n').lower()
 
             if opcao_venda == 'b':
-                print("Compra finalizada!\nTotal: ", valorTotal)
+                print("Compra finalizada!\nTotal da compra: R$", valorTotal)
+                opçao_posVenda = input(print('''\nDeseja retornar ao menu inicial?
+                1 - Sim
+                2 - Não
+                '''))
+
+                if opçao_posVenda == 1:
+                    continue
+                
+                if opçao_posVenda == 2:
+                    print("Sessão finalizada.")
+                    break
 
             if opcao_venda == 'c':
                 continue
