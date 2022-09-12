@@ -1,4 +1,7 @@
-listProd = {'produto': [], 'preço': []}
+listProd = {}
+listPreco = {}
+listQtde = {}
+
 
 while True:
     print(
@@ -29,18 +32,36 @@ while True:
             """)
             opcao_cadastro = input('Escolha uma opção: ').lower()
             while opcao_cadastro == 'a':
-                listProd['produto'].append(input('Digite o produto a ser cadastrado: ').lower())
-                listProd['preço'].append(float(input('Digite o preço do produto: R$ ').lower()))
                 
+                produto = input('Digite o produto a ser cadastrado: ').lower()
+                listProd[produto] = produto
+                
+                preco = float(input('Digite o preço do produto: R$ '))
+                #while preco not in (float):
+                    #print('Valor inválido.')
+                    #preco = float(input('Digite o preço do produto: R$ '))
+                listPreco[produto] = preco
+                
+                qtde = int(input('Digite a quantidade do produto: '))
+                listQtde[produto] = qtde
+
                 novo_prod=input('Deseja cadastrar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
-                if novo_prod == 'n' or novo_prod != 's':
+                
+                if novo_prod == 'n':
+                    break
+                if novo_prod != 's':
+                    novo_prod=input('Opção inválida. Digite S para "Sim" ou N para "Não": ')
+                if novo_prod == 'n':
                     break
    
             if opcao_cadastro == 'b':
-                print('A lista de produtos cadastrados é:\n',listProd['produto'])
+                for c in listProd:
+                    print('A lista de produtos cadastrados é: \n')
 
             if opcao_cadastro == 'c':
                 pass
+                #listProd.pop(input('Digite o produto a ser deletado: ').lower())
+
             if opcao_cadastro == 'd':
                 continue
             while opcao_cadastro not in('a','b','c','d'):
@@ -57,18 +78,24 @@ while True:
                 Escolha uma opção compatível: ''').lower()
                 while opcao_cadastro == 'a':
                     listProd['produto'].append(input('Digite o produto a ser cadastrado: ').lower())
-                    listProd['preço'].append(float(input('Digite o preço do produto: R$ ').lower()))
-                
-                    novo_prod=input('Deseja cadastrar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
+                    listProd['preço'].append(float(input('Digite o preço do produto: R$ ')))
+                    #while input != float:
+                    #    print('Valor inválido. Digite o preço do produto: R$ ')
+                    listProd['quantidade'].append(int(input('Digite a quantidade do produto: ')))
 
+                    novo_prod=input('Deseja cadastrar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
                     if novo_prod == 'n' or novo_prod != 's':
                         break
-
+   
             if opcao_cadastro == 'b':
-                print('A lista de produtos cadastrados é:\n',listProd['produto'])
+                print('A lista de produtos cadastrados é:\n',listProd)
+
+                #for chave, valor
 
                 if opcao_cadastro == 'c':
                     pass
+                    #input('Digite o produto a ser deletado: ').lower()
+
                 if opcao_cadastro == 'd':
                     continue
         
@@ -82,8 +109,41 @@ while True:
 
             """)
             opcao_venda = input('Escolha uma opção: ').lower()
-            if opcao_venda == 'a':
-                pass
+            
+            valorTotal = 0
+
+            while opcao_venda == 'a':
+                print("Produtos disponíveis: ", listProd)
+
+                p = input("Digite o nome do produto sendo comprado: \n")
+
+                for p in range(len(listProd)):
+                    for v in range(len(listPreco)):
+                        valorTotal += v
+                        print("Produto adicionado: ", str(p),
+                        "Preço do produto: R$", int(v), 
+                        "Valor total da compra: R$", valorTotal)
+
+                    print("""
+                    a) Adicionar mais produtos ao carrinho;
+                    b) Finalizar a compra.""")
+                
+                    opcao_venda = input('Escolha uma opção: \n').lower()
+
+            if opcao_venda == 'b':
+                print("Compra finalizada!\nTotal da compra: R$", valorTotal)
+                opçao_posVenda = input(print('''\nDeseja retornar ao menu inicial?
+                1 - Sim
+                2 - Não
+                '''))
+
+                if opçao_posVenda == 1:
+                    continue
+                
+                if opçao_posVenda == 2:
+                    print("Sessão finalizada.")
+                    break
+
             if opcao_venda == 'b':
                 pass
             if opcao_venda == 'c':
