@@ -11,13 +11,15 @@ while True:
                                                                                  
 ╠══============================== MENU DE NAVEGAÇÃO =============================══╣
 
-                                    1-CADASTRO 
+                                    1-Cadastro
                                     2-Vendas 
                                     3-Relatório 
                                     4-Sair 
                               """)
     opcao = input("""
-                            iNFORME A OPÇÃO DESEJADA:""")
+                            INFORME A OPÇÃO DESEJADA: """)
+    
+    listProd = []
     match opcao:
         case '1':
             print("""
@@ -82,12 +84,28 @@ while True:
 
             """)
             opcao_venda = input('Escolha uma opção: ').lower()
+
             if opcao_venda == 'a':
-                pass
+                print("Produtos disponíveis: ", listProd)
+
+                venda = input("Digite o nome do produto sendo vendido: \n")
+                valorTotal = 0
+
+                for p in listProd['produto']:
+                    for v in listProd['preço']:
+                        valorTotal += v
+
+                        print("Produto adicionado: ", p,
+                        "Preço do produto: ", v, 
+                        "Valor total da compra: ", valorTotal)
+
+
             if opcao_venda == 'b':
-                pass
+                print("Compra finalizada!\nTotal: ", valorTotal)
+
             if opcao_venda == 'c':
                 continue
+
             while opcao_venda not in('a','b','c'):
                 opcao_venda = input('''
                 Opção inválida. 
