@@ -92,10 +92,6 @@ while True:
 
                 p = input("Digite o nome do produto sendo comprado: \n")
 
-                while p not in listProd['produto']:
-                    print("Produto não cadastrado.")
-                    p = input("Digite o nome de um produto válido: \n")
-
                 for p in range(len(listProd['produto'])):
                     for v in range(len(listProd['preço'])):
                         valorTotal += v
