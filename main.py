@@ -54,15 +54,18 @@ while True:
                 if novo_prod == 'n':
                     break
    
-            if opcao_cadastro == 'b':
-                for c in listProd:
-                    print('A lista de produtos cadastrados é: \n')
+            while opcao_cadastro == 'b':
+                print('A lista de produtos cadastrados é: \n')
+                for produto, preco in list
+                print(f'rod.keys())
 
-            if opcao_cadastro == 'c':
-                pass
-                #listProd.pop(input('Digite o produto a ser deletado: ').lower())
+            while opcao_cadastro == 'c':
+                print("Produtos cadastrados: \n", listProd.keys())
+                
+                delete = input('Digite o produto a ser deletado: ').lower()
+                listProd.pop(delete)
 
-            if opcao_cadastro == 'd':
+            while opcao_cadastro == 'd':
                 continue
             while opcao_cadastro not in('a','b','c','d'):
                 opcao_cadastro = input('''
@@ -113,7 +116,7 @@ while True:
             valorTotal = 0
 
             while opcao_venda == 'a':
-                print("Produtos disponíveis: ", listProd)
+                print("Produtos disponíveis: ", listProd.keys())
 
                 p = input("Digite o nome do produto sendo comprado: \n")
 
